@@ -16,7 +16,9 @@ include("./src/steeperandstepsize.jl")
 
 #Tengo la libertad de elegit f(S) y p_target(p_i, q^i)
 
-function campoNoseHoover{T<:Real}(x ::Array{T,1})
+#k es tomada igual a 1 y entonces beta = 1/T
+
+function campoNoseHoover{T<:Real}(x ::Array{T,1}, beta::Float64)
   #Esta función recibe un arreglo, lo convierte en uno tipo Taylor, resuelve las ecuaciones de movimiento y regresa los coeficientes de la solución.
   order = ordenTaylor
   dim = length(x) #Dimension of the phase space
@@ -44,7 +46,7 @@ function campoNoseHoover{T<:Real}(x ::Array{T,1})
     D[1] = y[2]
     D[2] = - y[4]*y[2] - y[1]
     D[3] = y[4]
-    D[4] = y[2]^2-1
+    D[4] = y[2]^2-1/beta
 
     #Actualización de los coeficientes
     for i in 1:dim
@@ -55,7 +57,7 @@ function campoNoseHoover{T<:Real}(x ::Array{T,1})
   return vec0T
 end
 
-function NoseHooverIntegration(campo, nsteps, condinicial)
+function NoseHooverIntegration(campo, nsteps, condinicial, beta = 1)
   t = 0.0
   x = condinicial
 
@@ -72,7 +74,7 @@ function NoseHooverIntegration(campo, nsteps, condinicial)
   tiempo[1] = t
 
   for i in 2:nsteps
-    t, x = taylorStepper(campo, x, ordenTaylor, epsAbs )
+    t, x = taylorStepper(campo, x, ordenTaylor, epsAbs, beta )
     q[i] = x[1]
     p[i] = x[2]
     eta[i] = x[3]

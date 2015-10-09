@@ -5,11 +5,11 @@ const ordenTaylor = 28
 const epsAbs = 1.0e-20
 
 # Integrador
-function taylorStepper{T<:Number}( jetEqs::Function, vec0::Array{T,1}, order::Int64, epsilon::T)
+function taylorStepper{T<:Number}( jetEqs::Function, vec0::Array{T,1}, order::Int64, epsilon::T, beta::Float64)
   #Esta función recibe un arreglo correspondiente a los datos iniciales, resuelve las ecuaciones de movimiento y evalúa la solución en el tiempo óptimo (determinado mediantela función stepsize).
 
   n = length( vec0 )
-  vec1T = jetEqs( vec0 )
+  vec1T = jetEqs( vec0, beta)
 
   # Step-size
   hh = Inf

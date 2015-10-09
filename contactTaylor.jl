@@ -1,6 +1,6 @@
 include("./src/steeperandstepsize.jl")
 
-function campoContacto{T<:Real}(x ::Array{T,1})
+function campoContacto{T<:Real}(x ::Array{T,1}, beta::Float64)
   #Esta función recibe un arreglo, lo convierte en uno tipo Taylor, resuelve las ecuaciones de movimiento y regresa los coeficientes de la solución.
   order = ordenTaylor
   dim = length(x) #Dimension of the phase space
@@ -25,9 +25,9 @@ function campoContacto{T<:Real}(x ::Array{T,1})
     #Las entradas *D* y *y* estan en el orden q, p, S
 
     #Ecuaciones de movimiento
-    D[1] = (y[end]^2+1)*y[2]*exp((1/4)*y[2]^2+(1/4)*y[1]^2)/(2*y[end])
-    D[2] = exp((1/4)*y[2]^2+(1/4)*y[1]^2)*(-y[1]*y[end]^3+2*y[2]*y[3]^2-y[1]*y[3]-2*y[2])/(2*y[end]^2)
-    D[end] = -(y[end]^2+1)*exp((1/4)*y[2]^2+(1/4)*y[1]^2)*(y[2]^2-2)/(2*y[end])
+    D[1] = (y[end]^2+1)*beta*y[2]*exp(beta*((1/4)*y[2]^2+(1/4)*y[1]^2))/(2*y[end])
+    D[2] = -exp(beta*((1/4)*y[2]^2+(1/4)*y[1]^2))*(beta*y[1]*y[end]^3-2*y[2]*y[3]^2+beta*y[1]*y[3]+2*y[2])/(2*y[end]^2)
+    D[end] = -(y[end]^2+1)*exp(beta*((1/4)*y[2]^2+(1/4)*y[1]^2))*(beta*y[2]^2-2)/(2*y[end])
 
 
     #Actualización de los coeficientes
@@ -39,7 +39,7 @@ function campoContacto{T<:Real}(x ::Array{T,1})
   return vec0T
 end
 
-function contactIntegration(campo, nsteps, condinicial)
+function contactIntegration(campo, nsteps, condinicial, beta=1.)
   t = 0.0
   x = condinicial
 
@@ -54,7 +54,7 @@ function contactIntegration(campo, nsteps, condinicial)
   tiempo[1] = t
 
   for i in 2:nsteps
-          t, x = taylorStepper(campo, x, ordenTaylor, epsAbs )
+          t, x = taylorStepper(campo, x, ordenTaylor, epsAbs, beta )
     q[i] = x[1]
     p[i] = x[2]
     S[i] = x[3]
