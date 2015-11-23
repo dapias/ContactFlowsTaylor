@@ -19,11 +19,11 @@ function taylorStepper{T<:Number}( jetEqs::Function, vec0::Array{T,1}, order::In
   end
 
   # Values at t0+h
-  for i=1:n
-    vec0[i] = evaluate( vec1T[i], hh )
-  end
+#   for i=1:n
+#     vec0[i] = evaluate( vec1T[i], hh )
+#   end
 
-  return hh, vec0
+  return hh, vec1T
 end
 
 

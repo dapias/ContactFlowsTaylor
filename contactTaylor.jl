@@ -39,9 +39,10 @@ function campoContacto{T<:Real}(x ::Array{T,1}, beta::Float64)
   return vec0T
 end
 
-function contactIntegration(campo, nsteps, condinicial, beta=1.)
+function contactIntegration(campo, nsteps, condinicial, timestep, beta=1.)
   t = 0.0
   x = condinicial
+  n = length( x )
 
   q = Array(Float64, nsteps)
   p = Array(Float64, nsteps)
@@ -51,17 +52,34 @@ function contactIntegration(campo, nsteps, condinicial, beta=1.)
   q[1] = x[1]
   p[1] = x[2]
   S[1] = x[3]
-  tiempo[1] = t
+  tiempo = [timestep*(i-1) for i in 1:nsteps]
+
+  temporarytime = 0.
 
   for i in 2:nsteps
-          t, x = taylorStepper(campo, x, ordenTaylor, epsAbs, beta )
-    q[i] = x[1]
-    p[i] = x[2]
-    S[i] = x[3]
-    tiempo[i] = t + tiempo[i-1]
+    j = true
+    while j
+      t, vec1T = taylorStepper(campo, x, ordenTaylor, epsAbs, beta )
+      temporarytime += t
+
+      if tiempo[i] < temporarytime
+
+        # Values at t0+t
+        for k=1:n
+          x[k] = evaluate( vec1T[k], t )
+        end
+
+        q[i] = x[1]
+        p[i] = x[2]
+        S[i] = x[3]
+        j = false
+
+      end
+    end
   end
 
   tiempo, q, p, S
+
 
 end
 
