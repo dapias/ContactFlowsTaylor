@@ -1,0 +1,10 @@
+#Definition of the parameters passed to the file script.jl
+#Their names correspond to the names used in the manuscript
+#The initial condition is passed as [q_0, p_0, S_0]
+#If you want that Julia generates randomly the initial condition just comment the line that defines it putting a '#' in front of it
+
+#condinic: { q0: 0.12578471404894542,  p0: 0.7479637648489665, S0: 0.917435858684718}
+nsampling: 100
+deltatsample: 0.05
+c: 2.0
+beta: 0.1
