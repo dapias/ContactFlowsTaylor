@@ -2,7 +2,9 @@
 
 We provide the code that supports the numerical simulation reported in the manuscript [A thermostat algorithm generating target ensembles](http://arxiv.org/abs/1510.03942).
 
-The code is organized as follows. 
+The code is based on the package  [TaylorSeries.jl](https://github.com/JuliaDiff/TaylorSeries.jl).
+
+It is organized as follows. 
 
 The ``src`` folder contains the file  ``integrator.jl``. This file defines the module ContactIntegrator that exports the function ``contactintegration`` which is used as follows
 ```
@@ -16,6 +18,7 @@ The folder ``notebooks`` contain a ``jupyter notebook`` which it is shown how to
 ###Authors
 
 **Diego Tapias** (Facultad de Ciencias, UNAM)
+
 **Alessandro Bravetti** (Instituto de Ciencias Nucleares, UNAM)
 
 *2015.*
@@ -25,6 +28,4 @@ The folder ``notebooks`` contain a ``jupyter notebook`` which it is shown how to
 
 
 
-
-Programa para integrar flujos de contacto basado en el integrador de Taylor del paquete [TaylorSeries.jl](https://github.com/JuliaDiff/TaylorSeries.jl).
 
