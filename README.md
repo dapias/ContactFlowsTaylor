@@ -24,22 +24,23 @@ Clone this repository with the following command in a UNIX terminal
 Then move into the created folder and execute the script.  To do that you may proceed in the third different following ways.
 
 1. In a UNIX terminal type
-```
-~$ julia script.jl
-```
+
+ ```
+ ~$ julia script.jl
+ ```
 2. In a unix terminal execute julia as
-```
-~$ julia
-```
+ ```
+ ~$ julia
+ ```
 And then type the following command
-```
-julia> include("script.jl")
-```
+ ```
+ julia> include("script.jl")
+ ```
 
 3. Open a Jupyter Notebook and type in a cell
-```
-include("script.jl")
-```
+ ```
+ include("script.jl")
+ ```
 
 ### Requirements
 
