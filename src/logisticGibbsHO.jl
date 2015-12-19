@@ -1,3 +1,7 @@
+module ContactIntegrator
+
+export contactintegration
+
 using TaylorSeries
 
 const ordenTaylor = 28
@@ -83,7 +87,7 @@ function campoContacto{T<:Real}(vec0::Array{T,1},c::T, beta::T)
   return vec0T
 end
 
-function contactIntegration{T<:Real}(nsteps::Int64, condinicial::Array{T,1}, timestep::T, c::T, beta::T=1.)
+function contactintegration{T<:Real}(nsteps::Int64, condinicial::Array{T,1}, timesampling::T, c::T, beta::T=1.)
   t::Float64 = 0.0
 
   x = condinicial
@@ -97,7 +101,7 @@ function contactIntegration{T<:Real}(nsteps::Int64, condinicial::Array{T,1}, tim
   p[1] = x[2]
   S[1] = x[3]
   #Éste es el arreglo del tiempo de muestreo.
-  tiempo = [timestep*(i-1) for i in 1:nsteps]
+  tiempo = [timesampling*(i-1) for i in 1:nsteps]
   temporarytime = 0.
 
   for i in 2:nsteps
@@ -135,6 +139,7 @@ function contactIntegration{T<:Real}(nsteps::Int64, condinicial::Array{T,1}, tim
 
 end
 
+end
 #condinicial
 #x = [0.0, 1.0,0.001]
 
