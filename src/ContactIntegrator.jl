@@ -87,24 +87,24 @@ function campoContacto{T<:Real}(vec0::Array{T,1},c::T, beta::T)
   return vec0T
 end
 
-function contactintegration{T<:Real}(nsteps::Int64, condinicial::Array{T,1}, timesampling::T, c::T, beta::T=1.)
+function contactintegration{T<:Real}(nsampling::Int64, condinicial::Array{T,1}, deltatsample::T, c::T, beta::T)
   t::Float64 = 0.0
 
   x = condinicial
   #Crea los arreglos donde almacenaré la información de la simulación
-  q = Array(Float64, nsteps)
-  p = Array(Float64, nsteps)
-  S = Array(Float64, nsteps)
-  tiempo = Array(Float64, nsteps)
+  q = Array(Float64, nsampling)
+  p = Array(Float64, nsampling)
+  S = Array(Float64, nsampling)
+  tiempo = Array(Float64, nsampling)
   #El primer paso corresponde a la condición inicial
   q[1] = x[1]
   p[1] = x[2]
   S[1] = x[3]
   #Éste es el arreglo del tiempo de muestreo.
-  tiempo = [timesampling*(i-1) for i in 1:nsteps]
+  tiempo = [deltatsample*(i-1) for i in 1:nsampling]
   temporarytime = 0.
 
-  for i in 2:nsteps
+  for i in 2:nsampling
     j = true
     while j
       #Integro para encontrar la serie de Taylor con su t de convergencia

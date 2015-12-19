@@ -5,7 +5,7 @@ import YAML
 using ContactIntegrator
 using HDF5
 
-println("type the output filename:")
+println("Type the output filename (without a format):")
 name = string(readline(STDIN))
 filename = name[1:end-1]
 
