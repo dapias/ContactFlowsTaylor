@@ -49,7 +49,7 @@ for i in 1:nsimulations
 
   file["simulation-$i/initcond"] = initcond
 
-  results = contactintegration(n, initcond, deltat, c, beta)
+  results = contacthointegration!(n, initcond, deltat, c, beta)
 
   t = results[1]
   q = results[2]
