@@ -6,7 +6,7 @@ The code is based on the package  [TaylorSeries.jl](https://github.com/JuliaDiff
 
 It is organized as follows.
 
-The ``src`` folder contains the file  *ContactIntegrator.jl*. This file defines the module **ContactIntegrator** that exports the main function **contactintegration!** that performs the core of the simulation.
+The ``src`` folder contains the file  *ContactIntegrator.jl*. This file defines the module **ContactIntegrator** that exports the main function **contacthointegration!** that performs the core of the simulation.
 
 The module is imported in the file *script.jl* which takes certain values for the parameters (see below), performs the numerical integration and generates a *.hdf5* file which is saved in the ``HDF5`` folder with the name given by the user (asked by the script).
 
