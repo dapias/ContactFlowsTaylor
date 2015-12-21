@@ -21,7 +21,7 @@ Clone this repository with the following command in a UNIX terminal
 ~$ git clone https://github.com/dapias/ContactFlowsTaylor.git
 ```
 
-Then move into the created folder and execute the script.  To do that you may proceed in the third different following ways.
+Then move into the created folder and execute the script.  To do that you may proceed in one of the three different following ways
 
 1. In a UNIX terminal type
 
