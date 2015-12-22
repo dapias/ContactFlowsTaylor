@@ -32,7 +32,7 @@ Then move into the created folder and execute the script.  To do that you may pr
  ```
  ~$ julia
  ```
-And then type the following command
+This opens the Julia [REPL](https://en.wikibooks.org/wiki/Introducing_Julia/The_REPL). And then type the following command
  ```
  julia> include("script.jl")
  ```
@@ -55,7 +55,7 @@ The following packages are needed for the adequate execution of the program
 - YAML
 - PyPlot (optional, it is used in the notebook)
 
-To add a package inside Julia try the following
+To add a package type the following command in the Julia REPL.
 ```
 julia> Pkg.add("PackageName")
 ```
