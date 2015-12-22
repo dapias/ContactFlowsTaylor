@@ -62,9 +62,9 @@ julia> Pkg.add("PackageName")
 
 ###Authors
 
-**Diego Tapias** (Facultad de Ciencias, UNAM)
+**Diego Tapias** (Facultad de Ciencias, UNAM) diego.tapias@nucleares.unam.mx 
 
-**Alessandro Bravetti** (Instituto de Ciencias Nucleares, UNAM)
+**Alessandro Bravetti** (Instituto de Ciencias Nucleares, UNAM) bravetti@correo.nucleares.unam.mx
 
 *2015.*
 
