@@ -12,7 +12,7 @@ The module is imported in the file *script.jl* which takes certain values for th
 
 The parameters reside in the file *parameters.yaml* and the users may modify it for their convenience.
 
-Finally, the folder ``notebooks`` contain a *jupyter notebook* which illustrates how to manipulate the HDF5 data to generate the kind of figures displayed on the paper.
+Finally, the folder ``notebooks`` contains a *jupyter notebook* which illustrates how to manipulate the HDF5 data to generate the kind of figures displayed on the paper.
 
 ##Usage
 
