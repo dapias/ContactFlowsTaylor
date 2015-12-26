@@ -69,13 +69,9 @@ function contacthofield{T<:Real}(vec0::Array{T,1},c::T, beta::T)
     f = exp(y[3] - c)/(1 + exp(y[3] - c))^2.
     h = (exp(-beta*H)*f/Z)^(-0.5)
 
-    rho = h^(-2.)
-    theta = -log(rho)
-
-
     D[1] = h/2.*beta*y[2]
-    D[2] = h/2.*(-beta*4*q + p*(exp(S-c) -1)/(exp(S-c)+1))
-    D[3] = h/2.*(y[2]^2.*beta + 2.)
+    D[2] = h/2.*(-beta*4*y[1] + y[2]*(exp(y[3]-c) -1)/(exp(y[3]-c)+1))
+    D[3] = h/2.*(-y[2]^2.*beta + 2.)
 
     #Update of the coefficients
     for i in 1:dim
