@@ -32,7 +32,7 @@ Then move into the created folder and execute the script.  To do that you may pr
  ```
  ~$ julia
  ```
-This opens the Julia [REPL](https://en.wikibooks.org/wiki/Introducing_Julia/The_REPL). And then type the following command
+This command opens the Julia [REPL](https://en.wikibooks.org/wiki/Introducing_Julia/The_REPL). And then type the following command
  ```
  julia> include("script.jl")
  ```
