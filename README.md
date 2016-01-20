@@ -8,7 +8,7 @@ It is organized as follows.
 
 The ``src`` folder contains the file  *ContactIntegrator.jl*. This file defines the module **ContactIntegrator** that exports the main function **contacthointegration!** that performs the core of the simulation.
 
-The module is imported in the file *script.jl* which takes certain values for the parameters (see below), performs the numerical integration and generates a *.hdf5* file which is saved in the ``HDF5`` folder with the name given by the user (asked by the script).
+The module is imported in the script *contact_taylor.jl* which takes certain values for the parameters (see below), performs the numerical integration and generates a *.hdf5* file which is saved in the ``HDF5`` folder with the name given by the user (asked by the script).
 
 The parameters reside in the file *parameters.yaml* and the users may modify it for their convenience.
 
@@ -26,7 +26,7 @@ Then move into the created folder and execute the script.  To do that you may pr
 1. In a UNIX terminal type
 
  ```
- ~$ julia script.jl
+ ~$ julia contact_taylor.jl
  ```
 2. In a unix terminal execute julia as
  ```
@@ -34,12 +34,12 @@ Then move into the created folder and execute the script.  To do that you may pr
  ```
 This command opens the Julia [REPL](https://en.wikibooks.org/wiki/Introducing_Julia/The_REPL). And then type the following command
  ```
- julia> include("script.jl")
+ julia> include("contact_taylor.jl")
  ```
 
 3. Open a Jupyter Notebook and type in a cell
  ```
- include("script.jl")
+ include("contact_taylor.jl")
  ```
 
 ### Requirements
