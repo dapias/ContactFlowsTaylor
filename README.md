@@ -8,7 +8,7 @@ It is organized as follows.
 
 The ``src`` folder contains the file  *ContactIntegrator.jl*. This file defines the module **ContactIntegrator** that exports the main function **contacthointegration!** that performs the core of the simulation.
 
-The module is imported in the file *script.jl* which takes certain values for the parameters (see below), performs the numerical integration and generates a *.hdf5* file which is saved in the ``HDF5`` folder with the name given by the user (asked by the script).
+The module is imported in the script *contact_taylor.jl* which takes certain values for the parameters (see below), performs the numerical integration and generates a *.hdf5* file which is saved in the ``HDF5`` folder with the name given by the user (asked by the script).
 
 The parameters reside in the file *parameters.yaml* and the users may modify it for their convenience.
 
@@ -26,20 +26,20 @@ Then move into the created folder and execute the script.  To do that you may pr
 1. In a UNIX terminal type
 
  ```
- ~$ julia script.jl
+ ~$ julia contact_taylor.jl
  ```
-2. In a unix terminal execute julia as
+2. In a UNIX terminal execute julia as
  ```
  ~$ julia
  ```
 This command opens the Julia [REPL](https://en.wikibooks.org/wiki/Introducing_Julia/The_REPL). And then type the following command
  ```
- julia> include("script.jl")
+ julia> include("contact_taylor.jl")
  ```
 
 3. Open a Jupyter Notebook and type in a cell
  ```
- include("script.jl")
+ include("contact_taylor.jl")
  ```
 
 ### Requirements
@@ -59,6 +59,9 @@ To add a package type the following command in the Julia REPL.
 ```
 julia> Pkg.add("PackageName")
 ```
+###Miscellaneous
+
+In the folder RungeKutta, the same field was integrated using the  4th order adaptive Runge-Kutta adaptive solver with the [Dormand-Price](https://en.wikipedia.org/wiki/Dormand%E2%80%93Prince_method) method implemented in the Package [ODE.jl](https://github.com/JuliaLang/ODE.jl). It can be checked that the claim of the manuscript does not depend on the method of integration by analyzing the results of the Runge-Kutta integration.
 
 ###Authors
 
