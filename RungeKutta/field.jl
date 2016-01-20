@@ -1,4 +1,4 @@
-function contacthofield{T<:Real}(t::T, vec0::Array{T,1})  #The t is passed as parameter to use the function ode45 of the module
+function conthofield{T<:Real}(t::T, vec0::Array{T,1})  #The t is passed as parameter to use the function ode45 of the module
   y = vec0
   len = length(y)
   D = zeros(len)
