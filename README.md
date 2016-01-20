@@ -28,7 +28,7 @@ Then move into the created folder and execute the script.  To do that you may pr
  ```
  ~$ julia contact_taylor.jl
  ```
-2. In a unix terminal execute julia as
+2. In a UNIX terminal execute julia as
  ```
  ~$ julia
  ```
