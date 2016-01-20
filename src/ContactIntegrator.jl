@@ -1,6 +1,6 @@
 module ContactIntegrator
 
-export contacthointegration!
+export contacthointegration!, contacthofield
 
 using TaylorSeries
 
@@ -87,7 +87,7 @@ Function that performs the numerical integration of the contact harmonic oscilla
 distribution for *f(S)*). The initial condition is evolved through the simulation.
 The function returns the arrays time, p, q and S. These arrays contain the numerical values of those variables sampled along the simulation.
 """
-function contacthointegration!{T<:Real}(nsampling::Int64, initcond::Array{T,1}, deltatsample::T, c::T, beta::T)
+function contacthointegration!{T<:Real}(field::Function,nsampling::Int64, initcond::Array{T,1}, deltatsample::T, c::T, beta::T)
   t::Float64 = 0.0
   x = initcond
 
@@ -112,7 +112,7 @@ function contacthointegration!{T<:Real}(nsampling::Int64, initcond::Array{T,1}, 
     #This loop goes until we take the sample corresponding to time[i]
     while j
       #Find the step-size and Taylor series expanded around x
-      t, vec1T::Array{Taylor1{Real},1} = taylorStepper(contacthofield, x, c, beta )
+      t, vec1T::Array{Taylor1{Real},1} = taylorStepper(field, x, c, beta )
       #Evaluates the Taylor series
       for k in eachindex(x)
         @inbounds x[k] = evaluate( vec1T[k], t )
