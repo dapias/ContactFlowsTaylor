@@ -54,7 +54,7 @@ for i in 1:nsimulations
 
   file["simulation-$i/initcond"] = initcond
 
-  t, results = ode45(contacthofield, initcond, time; points=:specified);
+  t, results = ode45(contacthofield, initcond, time; points=:specified, reltol = 1.0e-10, abstol = 1.0e-14);
 
   q = Float64[results[i][1] for i in 1:length(t)]
   p = Float64[results[i][2] for i in 1:length(t)]
