@@ -55,11 +55,13 @@ for i in 1:nsimulations
   q = results[2]
   p = results[3]
   S = results[4]
+  invariant = results[5]
 
   file["simulation-$i/p"] = p
   file["simulation-$i/q"] = q
   file["simulation-$i/t"] = t
   file["simulation-$i/S"] = S
+  file["simulation-$i/invariant"] = invariant
 end
 
 

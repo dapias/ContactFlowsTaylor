@@ -12,6 +12,16 @@ function conthofield{T<:Real}(t::T, vec0::Array{T,1})  #The t is passed as param
   D[1] = h/2.*beta*y[2]
   D[2] = h/2.*(-beta*4*y[1] + y[2]*(exp(y[3]-c) -1)/(exp(y[3]-c)+1))
   D[3] = h/2.*(-y[2]^2.*beta + 2.)
+  D[4] = (-1. + exp(y[3] - c))*exp(-1/2.*(y[3] - c))/sqrt(exp(-beta*H)/Z)  ## dot(V)  (Extended variable introduced to calculate the invariant)
 
   return D
+end
+
+##Auxiliar function
+function logrho{T<:Real}(q::Array{T,1}, p::Array{T,1}, S::Array{T,1}, beta::T, c::T)
+  Z = pi/beta
+  H = p.^2/2. + 2.*q.^2
+  f = exp(S - c)./(1 + exp(S - c)).^2.
+
+  return log(exp(-beta*H).*f/Z)
 end
