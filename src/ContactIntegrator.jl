@@ -152,7 +152,7 @@ function contacthointegration!{T<:Real}(field::Function,nsampling::Int64, initco
 
 end
 
-
+#Auxiliar function
 function logrho{T<:Real}(x::Array{T,1}, beta::T, c::T)
   Z = pi/beta
   H = x[2]^2/2. + 2.*x[1]^2
