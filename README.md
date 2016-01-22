@@ -59,9 +59,9 @@ To add a package type the following command in the Julia REPL.
 ```
 julia> Pkg.add("PackageName")
 ```
-###Miscellaneous
+###Miscellaneous (Runge-Kutta)
 
-In the folder RungeKutta, the same field was integrated using the  4th order adaptive Runge-Kutta adaptive solver with the [Dormand-Price](https://en.wikipedia.org/wiki/Dormand%E2%80%93Prince_method) method implemented in the Package [ODE.jl](https://github.com/JuliaLang/ODE.jl). It can be checked that the claim of the manuscript does not depend on the method of integration by analyzing the results of the Runge-Kutta integration.
+In the folder RungeKutta, the same field was integrated using the  4th order adaptive Runge-Kutta adaptive solver with the [Dormand-Price](https://en.wikipedia.org/wiki/Dormand%E2%80%93Prince_method) method implemented in the Package [ODE.jl](https://github.com/JuliaLang/ODE.jl). It can be checked that the claim of the manuscript does not depend on the method of integration by analyzing the results of the Runge-Kutta integration. However, for this procedure there is a systematic numeric error that even though it is small it tends to grow up with time. It can be analyzed following the evolution of the invariant quantity. 
 
 ###Authors
 
