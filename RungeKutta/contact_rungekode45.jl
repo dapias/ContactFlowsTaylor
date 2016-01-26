@@ -56,7 +56,8 @@ for i in 1:nsimulations
 
   push!(initcond, 0.0)   ##Initial value of the extended variable that will be used to calculate the extended invariant
 
-  t, results = ode45(conthofield, initcond, time; points=:specified, reltol = 1.0e-10, abstol = 1.0e-14);
+  #t, results = ode45(conthofield, initcond, time; points=:specified, reltol = 1.0e-10, abstol = 1.0e-14);
+  t, results = ode45(conthofield, initcond, time; points=:specified, reltol = 1.0e-16, abstol = 1.0e-20);
 
   q = Float64[results[i][1] for i in 1:length(t)]
   p = Float64[results[i][2] for i in 1:length(t)]
